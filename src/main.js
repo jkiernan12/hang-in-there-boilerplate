@@ -151,11 +151,20 @@ mainFromSavedButton.addEventListener('click', function() {
   switchSections(savedSection);
 })
 
+makePoster.addEventListener('click', function() {
+  makeNewPoster();
+})
+
 // functions and event handlers go here 👇
 
 function switchSections(section){
   section.classList.toggle("hidden")
 };
+
+function makeNewPoster() {
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  console.log(currentPoster);
+}
 
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
