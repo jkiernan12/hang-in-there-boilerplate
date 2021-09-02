@@ -156,7 +156,11 @@ makePoster.addEventListener('click', function() {
 })
 
 saveButton.addEventListener('click', function(){
-  savedPosters.push(currentPoster);
+  if (savedPosters.includes(currentPoster)){
+    return
+  } else {
+    savedPosters.push(currentPoster);
+  }
   console.log(savedPosters);
 })
 
