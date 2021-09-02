@@ -155,6 +155,11 @@ makePoster.addEventListener('click', function() {
   makeNewPoster();
 })
 
+saveButton.addEventListener('click', function(){
+  savedPosters.push(currentPoster);
+  console.log(savedPosters);
+})
+
 // functions and event handlers go here 👇
 
 function switchSections(section){
@@ -168,6 +173,7 @@ function makeNewPoster() {
   quotes.push(currentPoster.quote);
   switchSections(mainSection);
   switchSections(formSection);
+  console.log(currentPoster);
   displayPoster();
 }
 
