@@ -1,11 +1,19 @@
 // query selector variables go here 👇
 
+// Main poster elements
 var mainImage = document.querySelector(".poster-img");
 var mainTitle = document.querySelector(".poster-title");
 var mainQuote = document.querySelector(".poster-quote");
+
+// Buttons
 var randomButton = document.querySelector(".show-random");
 var savedButton = document.querySelector(".show-saved");
 var formButton = document.querySelector(".show-form");
+var saveButton = document.querySelector(".save-poster");
+var mainFromMakeButton = document.querySelector(".show-main");
+var mainFromSavedButton = document.querySelector(".back-to-main");
+
+// Sections
 var savedSection = document.querySelector(".saved-posters");
 var formSection = document.querySelector(".poster-form");
 var mainSection = document.querySelector(".main-poster");
@@ -125,6 +133,16 @@ savedButton.addEventListener('click', function(){
 formButton.addEventListener('click', function() {
   switchSections(mainSection);
   switchSections(formSection);
+})
+
+mainFromMakeButton.addEventListener('click', function() {
+  switchSections(mainSection);
+  switchSections(formSection);
+})
+
+mainFromSavedButton.addEventListener('click', function() {
+  switchSections(mainSection);
+  switchSections(savedSection);
 })
 
 // functions and event handlers go here 👇
