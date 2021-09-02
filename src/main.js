@@ -163,7 +163,12 @@ function switchSections(section){
 
 function makeNewPoster() {
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
-  console.log(currentPoster);
+  images.push(currentPoster.imageURL);
+  titles.push(currentPoster.title);
+  quotes.push(currentPoster.quote);
+  switchSections(mainSection);
+  switchSections(formSection);
+  displayPoster();
 }
 
 // (we've provided one for you to get you started)!
