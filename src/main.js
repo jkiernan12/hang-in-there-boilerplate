@@ -12,11 +12,17 @@ var formButton = document.querySelector(".show-form");
 var saveButton = document.querySelector(".save-poster");
 var mainFromMakeButton = document.querySelector(".show-main");
 var mainFromSavedButton = document.querySelector(".back-to-main");
+var makePoster = document.querySelector(".make-poster");
 
 // Sections
 var savedSection = document.querySelector(".saved-posters");
 var formSection = document.querySelector(".poster-form");
 var mainSection = document.querySelector(".main-poster");
+
+//Inputs
+var imageInput = document.querySelector("#poster-image-url");
+var titleInput = document.querySelector("#poster-title");
+var quoteInput = document.querySelector("#poster-quote");
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -145,11 +151,25 @@ mainFromSavedButton.addEventListener('click', function() {
   switchSections(savedSection);
 })
 
+makePoster.addEventListener('click', function() {
+  makeNewPoster();
+})
+
 // functions and event handlers go here 👇
 
 function switchSections(section){
   section.classList.toggle("hidden")
 };
+
+function makeNewPoster() {
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  images.push(currentPoster.imageURL);
+  titles.push(currentPoster.title);
+  quotes.push(currentPoster.quote);
+  switchSections(mainSection);
+  switchSections(formSection);
+  displayPoster();
+}
 
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
