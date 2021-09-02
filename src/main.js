@@ -127,9 +127,7 @@ var currentPoster;
 
 // event listeners go here 👇
 
-randomButton.addEventListener('click', function(){
-    createRandomPoster();
-})
+randomButton.addEventListener('click', createRandomPoster);
 
 savedButton.addEventListener('click', function(){
   switchSections(mainSection);
@@ -151,11 +149,20 @@ mainFromSavedButton.addEventListener('click', function() {
   switchSections(savedSection);
 })
 
-makePoster.addEventListener('click', function() {
-  makeNewPoster();
-})
+makePoster.addEventListener('click', makeNewPoster);
+
+saveButton.addEventListener('click', addSavedPoster);
 
 // functions and event handlers go here 👇
+
+function addSavedPoster(){
+  if (savedPosters.includes(currentPoster)){
+    return
+  } else {
+    savedPosters.push(currentPoster);
+  }
+  console.log(savedPosters);
+}
 
 function switchSections(section){
   section.classList.toggle("hidden")
@@ -168,6 +175,7 @@ function makeNewPoster() {
   quotes.push(currentPoster.quote);
   switchSections(mainSection);
   switchSections(formSection);
+  console.log(currentPoster);
   displayPoster();
 }
 
