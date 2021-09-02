@@ -118,11 +118,8 @@ randomButton.addEventListener('click', function(){
 })
 
 savedButton.addEventListener('click', function(){
-
-})
-
-formButton.addEventListener('click', function(){
-
+  switchSections(mainSection);
+  switchSections(savedSection);
 })
 
 formButton.addEventListener('click', function() {
