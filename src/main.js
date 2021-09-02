@@ -135,6 +135,16 @@ formButton.addEventListener('click', function() {
   switchSections(formSection);
 })
 
+mainFromMakeButton.addEventListener('click', function() {
+  switchSections(mainSection);
+  switchSections(formSection);
+})
+
+mainFromSavedButton.addEventListener('click', function() {
+  switchSections(mainSection);
+  switchSections(savedSection);
+})
+
 // functions and event handlers go here 👇
 
 function switchSections(section){
