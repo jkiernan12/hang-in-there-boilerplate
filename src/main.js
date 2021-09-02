@@ -170,7 +170,8 @@ function switchSections(section){
   section.classList.toggle("hidden")
 };
 
-function makeNewPoster() {
+function makeNewPoster(event) {
+  event.preventDefault();
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   images.push(currentPoster.imageURL);
   titles.push(currentPoster.title);
@@ -202,10 +203,10 @@ function showSaved() {
   var allSavedPosters = "";
   for (var i = 0; i < savedPosters.length; i++) {
     var savedPosterHTML = `
-    <article class="mini-poster">
+    <article id="${savedPosters[i].id}" class="mini-poster">
           <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
-          <h1 class="poster-title">${savedPosters[i].title}</h1>
-          <h3 class="poster-quote">${savedPosters[i].quote}</h3>
+          <h2 class="poster-title">${savedPosters[i].title}</h1>
+          <h4 class="poster-quote">${savedPosters[i].quote}</h3>
     </article>`;
     allSavedPosters += savedPosterHTML;
   }
