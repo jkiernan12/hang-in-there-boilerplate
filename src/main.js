@@ -211,12 +211,21 @@ function showSaved() {
     allSavedPosters += savedPosterHTML;
   }
   posterGrid.innerHTML= allSavedPosters;
+  addPosterListeners();
 }
 
-function miniPosterListeners() {
+function addPosterListeners() {
   var miniPosters = document.querySelectorAll(".mini-poster");
   for (var i = 0; i < miniPosters.length; i++ ) {
-    miniPosters[i].addEventListener("dblclick", deleteElement);
+    miniPosters[i].addEventListener("dblclick", getElementID);
+  }
+}
+
+function getElementID(event) {
+  if (event.target.id) {
+    deletePoster(event.target.id);
+  } else {
+    deletePoster(event.target.parentElement.id);
   }
 }
 
