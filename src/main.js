@@ -229,4 +229,14 @@ function getElementID(event) {
   }
 }
 
+function deletePoster(id) {
+  id = parseInt(id, 10);
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id === id) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  showSaved();
+}
+
 createRandomPoster();
