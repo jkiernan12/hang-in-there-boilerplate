@@ -18,6 +18,7 @@ var makePoster = document.querySelector(".make-poster");
 var savedSection = document.querySelector(".saved-posters");
 var formSection = document.querySelector(".poster-form");
 var mainSection = document.querySelector(".main-poster");
+var posterGrid = document.querySelector(".saved-posters-grid");
 
 //Inputs
 var imageInput = document.querySelector("#poster-image-url");
@@ -130,6 +131,7 @@ var currentPoster;
 randomButton.addEventListener('click', createRandomPoster);
 
 savedButton.addEventListener('click', function(){
+  showSaved();
   switchSections(mainSection);
   switchSections(savedSection);
 })
@@ -168,7 +170,8 @@ function switchSections(section){
   section.classList.toggle("hidden")
 };
 
-function makeNewPoster() {
+function makeNewPoster(event) {
+  event.preventDefault();
   currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
   images.push(currentPoster.imageURL);
   titles.push(currentPoster.title);
@@ -195,5 +198,19 @@ function displayPoster(){
   mainImage.src = currentPoster.imageURL;
   mainQuote.innerText = currentPoster.quote;
 };
+
+function showSaved() {
+  var allSavedPosters = "";
+  for (var i = 0; i < savedPosters.length; i++) {
+    var savedPosterHTML = `
+    <article id="${savedPosters[i].id}" class="mini-poster">
+          <img class="poster-img" src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+          <h2 class="poster-title">${savedPosters[i].title}</h1>
+          <h4 class="poster-quote">${savedPosters[i].quote}</h3>
+    </article>`;
+    allSavedPosters += savedPosterHTML;
+  }
+  posterGrid.innerHTML= allSavedPosters;
+}
 
 createRandomPoster();
