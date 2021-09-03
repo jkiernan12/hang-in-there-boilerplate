@@ -213,4 +213,11 @@ function showSaved() {
   posterGrid.innerHTML= allSavedPosters;
 }
 
+function miniPosterListeners() {
+  var miniPosters = document.querySelectorAll(".mini-poster");
+  for (var i = 0; i < miniPosters.length; i++ ) {
+    miniPosters[i].addEventListener("dblclick", deleteElement);
+  }
+}
+
 createRandomPoster();
