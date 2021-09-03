@@ -211,6 +211,32 @@ function showSaved() {
     allSavedPosters += savedPosterHTML;
   }
   posterGrid.innerHTML= allSavedPosters;
+  addPosterListeners();
+}
+
+function addPosterListeners() {
+  var miniPosters = document.querySelectorAll(".mini-poster");
+  for (var i = 0; i < miniPosters.length; i++ ) {
+    miniPosters[i].addEventListener("dblclick", getElementID);
+  }
+}
+
+function getElementID(event) {
+  if (event.target.id) {
+    deletePoster(event.target.id);
+  } else {
+    deletePoster(event.target.parentElement.id);
+  }
+}
+
+function deletePoster(id) {
+  id = parseInt(id, 10);
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id === id) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  showSaved();
 }
 
 createRandomPoster();
