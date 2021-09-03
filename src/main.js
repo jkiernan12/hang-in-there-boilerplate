@@ -158,16 +158,13 @@ saveButton.addEventListener('click', addSavedPoster);
 // functions and event handlers go here 👇
 
 function addSavedPoster(){
-  if (savedPosters.includes(currentPoster)){
-    return
-  } else {
+  if (!savedPosters.includes(currentPoster)){
     savedPosters.push(currentPoster);
   }
-  console.log(savedPosters);
 }
 
 function switchSections(section){
-  section.classList.toggle("hidden")
+  section.classList.toggle("hidden");
 };
 
 function makeNewPoster(event) {
@@ -178,7 +175,6 @@ function makeNewPoster(event) {
   quotes.push(currentPoster.quote);
   switchSections(mainSection);
   switchSections(formSection);
-  console.log(currentPoster);
   displayPoster();
 }
 
@@ -189,7 +185,6 @@ function getRandomIndex(array) {
 
 function createRandomPoster(){
   currentPoster = new Poster(images[getRandomIndex(images)], titles[getRandomIndex(titles)], quotes[getRandomIndex(quotes)]);
-  console.log(currentPoster);
   displayPoster();
 };
 
@@ -230,9 +225,8 @@ function getElementID(event) {
 }
 
 function deletePoster(id) {
-  id = parseInt(id, 10);
   for (var i = 0; i < savedPosters.length; i++) {
-    if (savedPosters[i].id === id) {
+    if (savedPosters[i].id == id) {
       savedPosters.splice(i, 1);
     }
   }
