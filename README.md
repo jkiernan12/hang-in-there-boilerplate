@@ -23,7 +23,7 @@ This project was an opportunity to practice Javascript fundamentals and familiar
 - JS / CSS / HTML
 
 ## Install + Setup
-- The project is deployed [here](https://newertkrocker.github.io/hang-in-there-boilerplate/)!
+- The project is deployed [here](https://jkiernan12.github.io/hang-in-there-boilerplate/)!
 - It will generate random posters for you from our library of default images and text, or you can generate your own using the provided form. Go wild with it!
 - On the "saved posters" screen, you can double-click on a poster to delete it from the grid.
 
